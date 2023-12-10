@@ -1,0 +1,30 @@
+def SelectionSort(lst):
+    key1 = "First Name"
+    key2 = "Last Name"
+    n = len(lst)
+    for i in range(n):
+        smallest_index = i
+        for j in range(i + 1, n):
+            if lst[j][key1] <= lst[smallest_index][key1]:
+                if lst[j][key1] < lst[smallest_index][key1]:
+                    smallest_index = j
+                elif (
+                    lst[j][key1] == lst[smallest_index][key1]
+                    and lst[j][key2] < lst[smallest_index][key2]
+                ):
+                    smallest_index = j
+        lst[i], lst[smallest_index] = lst[smallest_index], lst[i]
+
+    return lst
+
+A = [{'First Name':'Aurora','Last Name':'Clint'},
+    {'First Name':'Farima','Last Name':'Safari'},
+    {'First Name':'Samin','Last Name':'Dinparvar'},
+    {'First Name':'Parnian','Last Name':'Bahraminia'},
+    {'First Name':'Samin','Last Name':'Eslami'},
+    {'First Name':'Amin','Last Name':'Bazrafshan'},
+    {'First Name':'Amin','Last Name':'Bahraminia'},
+    {'First Name':'Parnian','Last Name':'Zare'},
+    {'First Name':'Radin','Last Name':'Abedi'},
+    ]
+print(SelectionSort(A))
